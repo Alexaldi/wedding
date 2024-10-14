@@ -1,4 +1,8 @@
 /* Reset margin and padding */
+:root{
+  --pr-color:#0F0D0D;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,23 +10,50 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  color: #333;
-  background-color: #f4f4f4;
+  font-family: "Abril Fatface",serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #fff;
 }
 
 /* Navbar */
 .navbar {
+  position: fixed; /* Navbar akan tetap berada di atas */
+  top: 0;
+  left: 0;
+  width: 100%; /* Memastikan lebar navbar mencakup seluruh layar */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 50px;
-  background-color: #000;
+  z-index: 1000; /* Memastikan navbar di atas konten lain */
   color: #fff;
+  transition: background-color 0.6s ease, padding 0.4s ease;
+}
+
+.navbar2 {
+  position: fixed; /* Navbar akan tetap berada di atas */
+  top: 0;
+  left: 0;
+  width: 100%; /* Memastikan lebar navbar mencakup seluruh layar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  z-index: 1000; /* Memastikan navbar di atas konten lain */
+  color: #fff;
+  transition: background-color 0.6s ease, padding 0.4s ease;
+  background-color: rgba(0, 0, 0, 1);
+  pass
+}
+
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 1); /* Background berubah ketika discroll */
 }
 
 .navbar .logo {
   font-size: 24px;
+  color: #e0ac1c; 
 }
 
 .navbar ul {
@@ -36,7 +67,7 @@ body {
 
 .navbar ul li a {
   text-decoration: none;
-  color: #fff;
+  color: #9b8c0c;
   font-weight: bold;
   padding: 10px 15px;
 }
@@ -46,12 +77,88 @@ body {
   border-radius: 5px;
 }
 
+.navbar2 .logo {
+  font-size: 24px;
+  color: #e0ac1c; 
+}
+.navbar2 ul {
+  list-style: none;
+  display: flex;
+}
+
+
+.navbar2 ul li {
+  margin-left: 30px;
+}
+
+.navbar2 ul li a {
+  text-decoration: none;
+  color: #9b8c0c;
+  font-weight: bold;
+  padding: 10px 15px;
+}
+
+.navbar2 ul li a:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+
+/* dropdown */
+/* Style the dropdown button */
+.dropbtn {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-family: "Abril Fatface",serif;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #3d3109;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #555;}
+
+
+
 /* Hero Section */
 .hero {
   position: relative;
   height: 100vh;
   background: url('assets/img/bgindex.png') no-repeat center center/cover;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .hero .overlay {
@@ -65,22 +172,38 @@ body {
 
 .hero .content {
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+  z-index: 1;
   color: #fff;
 }
 
 .hero h1 {
   font-size: 4rem;
   font-weight: bold;
+  margin: 0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
+  padding-bottom: 20px; 
 }
 
-.hero h2 {
-  font-size: 2rem;
+.hero .title-container {
   margin-top: 10px;
-  font-style: italic;
+  padding: 5px 20px;
+  display: inline-block;
+  background-image: url(assets/img/Group\ 2.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-width: 100vh;  /* Menambahkan lebar minimum */
+  min-height: 30vh; /* Menambahkan tinggi minimum */
 }
 
+.hero .title-container h1 {
+  font-size: 3rem;
+  color: #e0ac1c; /* Gold text color */
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0;
+  padding: 0 15px;
+}
 
 
 /* Service Section */
@@ -131,6 +254,29 @@ body {
   margin-bottom: 15px;
 }
 
+.dropbtn{
+  font-weight: 700;
+}
+.nav-item {
+  font-weight: 500;
+  width: 172px;
+  height: 51px;
+  c
+}
+
+.nav-link {
+  display: flex;
+width: 172px;
+height: 51px;
+padding: 8px 80px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+flex-shrink: 0;
+}
+  
+
+
 .text-content p img {
   width: 50px;
   height: 50px;
@@ -150,7 +296,7 @@ body {
   font-size: 1.1rem;
   margin-bottom: 15px;
   font-weight: bolder;
-  line-height: 1.8;
+  line-height: 2;
 }
 
 /* Polaroid image styling */
@@ -182,63 +328,88 @@ body {
   }
 }
 
+.fw-bold {
+  font-weight: 700;
+}
+
 .polaroid {
   border: 10px solid white;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   border-radius: 0;
 }
-/* Paket Section */
-.paket {
-  padding: 50px;
-  text-align: left;
+
+.package-section {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  padding-top: 4rem;
 }
 
-.paket-container {
+.package-container {
   display: flex;
-  flex-direction: column;
-  gap: 50px;
-}
-
-.paket-item {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  align-items: center;
-  gap: 20px;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
   background-color: #fff;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.paket-item h2 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
+.package-text {
+  width: 40%;
 }
 
-.paket-item ul {
+.package-text h2 {
+  font-size: 24px;
+  color: #444;
+  margin-bottom: 15px;
+  position: relative;
+  padding-left: 30px;
+}
+
+.package-text h2::before {
+  content: '\1F46D'; /* Unicode character for couple icon */
+  position: absolute;
+  left: 0;
+  font-size: 24px;
+  top: 0;
+}
+
+.package-text ul {
   list-style: none;
-  padding: 0;
+  line-height: 1.6;
+  margin-bottom: 15px;
 }
 
-.paket-item ul li {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
+.package-text ul li {
+  font-size: 16px;
+  margin-bottom: 5px;
 }
 
-.paket-item img {
-  width: 250px;
-  height: auto;
+.package-image {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.package-image img {
+  max-width: 100%;
   border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive for Paket Section */
-@media screen and (max-width: 768px) {
-  .paket-item {
-    grid-template-columns: 1fr;
-  }
+.mua-partner {
+  margin-top: 15px;
+  width: 25%;
+  margin-left: 20px;
+}
 
-  .paket-item img {
-    width: 100%;
-  }
+.mua-partner ul {
+  list-style: none;
+  line-height: 1.6;
+}
+
+.mua-partner ul li {
+  font-size: 14px;
 }
